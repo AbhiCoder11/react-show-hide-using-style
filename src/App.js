@@ -24,7 +24,9 @@ class App extends Component {
   
  
   render() {
+    console.log('here'+this.state.loading)
     return (
+      
       <div>
         {this.state.loading?<Hello/>:null}
       <button onClick={this.getIt.bind(this)} 
