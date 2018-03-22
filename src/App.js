@@ -7,6 +7,24 @@ import Hello from './Hello';
 
 
 class App extends Component {
+   
+  render() {
+    //console.log('here'+this.state.loading)
+    const arr=['button1','button2','button3','button4','button5','button6'];
+    return (
+      
+      <ul>
+        {arr.map((item,index)=>{
+          return(
+           <Btn key={index} value={arr[index]} /> 
+          )
+        })}
+        
+      </ul>
+    );
+  }
+}
+class Btn extends Component{
   constructor(){
     super();
     this.state={
@@ -20,21 +38,22 @@ class App extends Component {
     console.log(this.state.loading)
 
   }
-  
-  
- 
-  render() {
-    console.log('here'+this.state.loading)
-    return (
-      
-      <div>
-        {this.state.loading?<Hello/>:null}
-      <button onClick={this.getIt.bind(this)} 
-      style={{ visibility: this.state.loading? 'hidden': 'visible'}}
-      >click here</button>
-      </div>
+  render(){
+    return(
+      <li>
+        
+        <button onClick={this.getIt.bind(this)}
+          
+          >
+          <span>
+          {this.state.loading?<Hello/>:null}
+            </span>
+          <span style={{ visibility: this.state.loading? 'hidden': 'visible'}}>{this.props.value}</span></button>
+          <br/>
+       </li> 
     );
   }
 }
+
 
 export default App;
